@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "kvaprovisual",
+  "version": "1.0.0",
+  "name": "KvaProVisual",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.kvapro.kvaprovisual.client.KvaProVisualClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21"
+  }
+}

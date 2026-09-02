@@ -7,6 +7,7 @@ group = 'ru.kvapro'
 
 repositories {
     maven { url = "https://fabricmc.net" }
+    maven { url = "https://minecraft.net" }
     mavenCentral()
 }
 

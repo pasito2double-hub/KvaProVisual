@@ -14,8 +14,19 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Auto Create Gradle Wrapper and Settings
+        run: |
+          # Автоматически создаем правильный settings.gradle в корне сборки
+          echo "pluginManagement { repositories { maven { url = 'https://fabricmc.net' }; mavenCentral(); gradlePluginPortal() } }" > settings.gradle
+          echo "rootProject.name = 'KvaProVisual'" >> settings.gradle
+          
+          # Автоматически генерируем gradle.properties
+          echo "minecraft_version=1.21.11" > gradle.properties
+          echo "yarn_mappings=1.21.11+build.1" >> gradle.properties
+          echo "loader_version=0.16.0" >> gradle.properties
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Mod with Gradle
-        run: gradle build
+        run: gradle build --no-daemon
